@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse Input</title>
+    <style>
+      h1 {
+        margin: 70px 0px 0px 580px;
+      }
+      .container {
+        height: 250px;
+        width: 700px;
+        border: 2px solid black;
+        border-radius: 20px;
+        margin: 30px 0px 0px 350px;
+        background: linear-gradient(90deg, rgb(255, 81, 0), orange);
+      }
+      .btn {
+        margin: 90px 0px 0px 160px;
+      }
+
+      input {
+        height: 25px;
+        width: 200px;
+        border: 2px solid black;
+      }
+      button {
+        background-color: rgb(150, 230, 31);
+        border-radius: 4px;
+        height: 30px;
+        width: 120px;
+      }
+      button:hover {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reversing String</h1>
+    <div class="container">
+      <div class="btn">
+        <input type="text" id="inputString" placeholder="Enter String" />
+        <button onclick="reverseString()">Reverse</button>
+        <p id="result"></p>
+      </div>
+    </div>
+
+    <script>
+      function reverseString() {
+        // Get the input string
+        var inputString = document.getElementById("inputString").value;
+
+        // Call the recursive function to reverse the string
+        var reversedString = reverseRecursively(inputString);
+
+        // Display the reversed string
+        document.getElementById("result").innerHTML =
+          "Reversed String: " + reversedString;
+      }
+
+      function reverseRecursively(str) {
+        // Base case: if the string is empty or has only one character, return it
+        if (str.length <= 1) {
+          return str;
+        }
+
+        // Recursive case: reverse the substring excluding the first character
+        // and append the first character to the end
+        return reverseRecursively(str.substring(1)) + str[0];
+      }
+    </script>
+  </body>
+</html>
